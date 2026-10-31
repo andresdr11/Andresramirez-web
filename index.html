@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Unas preguntas rápidas para entender tu proyecto y prepararte una propuesta.">
+<meta property="og:title" content="Briefing de tu web · Andrés Ramírez">
+<meta property="og:description" content="Unas preguntas rápidas para entender tu proyecto y prepararte una propuesta. Unos 7 minutos.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0E4A3A">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%230E4A3A'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='32' text-anchor='middle' fill='%23FFC845'%3EA%3C/text%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Briefing de tu web · Andrés Ramírez</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500;600&display=swap">
+<style>
+/* Layout: banda de portada verde intenso; debajo, bloques con título a la izquierda y preguntas a la derecha; barra inferior fija con progreso y envío */
+:root{
+  --brand:#0E4A3A; --brand-2:#13614C; --on-brand:#F6F3E8; --sun:#FFC845;
+  --bg:#F7F6F1; --paper:#FFFFFF; --ink:#16201C; --muted:#5F6964; --line:#E2E2DA; --tint:#E3F1EA; --pick:#13614C; --on-pick:#FFFFFF;
+  --display:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --body:"Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --brand:#0B3B2E; --brand-2:#145B48; --on-brand:#F1EEE2; --sun:#FFC845;
+  --bg:#0F1412; --paper:#161D1A; --ink:#E8ECE9; --muted:#97A39D; --line:#26302C; --tint:#173A2F; --pick:#4FC29A; --on-pick:#0B1A15; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --brand:#0B3B2E; --brand-2:#145B48; --on-brand:#F1EEE2; --sun:#FFC845;
+  --bg:#0F1412; --paper:#161D1A; --ink:#E8ECE9; --muted:#97A39D; --line:#26302C; --tint:#173A2F; --pick:#4FC29A; --on-pick:#0B1A15; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:24px}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--brand)}
+.in{max-width:960px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+
+/* Portada */
+.hero{background:var(--brand);color:var(--on-brand);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:56px solid var(--brand-2);opacity:.9;pointer-events:none}
+.hero .in{position:relative;z-index:1;padding-block:44px 52px;display:grid;gap:18px}
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:14px;opacity:.85}
+.tag i{width:28px;height:28px;border-radius:50%;background:var(--sun);color:var(--brand);font-style:normal;font-weight:700;font-family:var(--display);display:grid;place-items:center;font-size:14px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,7.2vw,66px);line-height:.98;letter-spacing:-.03em;margin:0;max-width:14ch;text-wrap:balance}
+h1 span{color:var(--sun)}
+.lead{margin:0;max-width:52ch;font-size:17px;opacity:.88}
+.facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.facts span{border:1px solid color-mix(in srgb,var(--on-brand) 30%,transparent);border-radius:99px;padding:6px 12px;font-size:14px}
+
+/* Bloques */
+main{padding-bottom:120px}
+section.block{display:grid;grid-template-columns:220px minmax(0,1fr);gap:18px 44px;padding-block:44px;border-bottom:1px solid var(--line)}
+@media (max-width:760px){section.block{grid-template-columns:minmax(0,1fr);padding-block:34px}}
+.side{align-self:start;display:grid;gap:6px}
+@media (min-width:761px){.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 28px)}}
+.step{font-size:13px;font-weight:600;color:var(--pick);display:flex;align-items:center;gap:8px}
+.step .ok{display:none;width:18px;height:18px;border-radius:50%;background:var(--pick);color:var(--on-pick);font-size:11px;place-items:center}
+.block.done .step .ok{display:grid}
+h2{font-family:var(--display);font-weight:700;font-size:25px;line-height:1.1;letter-spacing:-.015em;margin:0}
+.side p{margin:0;color:var(--muted);font-size:14px;max-width:30ch}
+.qs{display:grid;gap:28px;min-width:0;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:26px 24px}
+@media (max-width:480px){.qs{padding:22px 18px}}
+
+.field{display:grid;gap:10px}
+.lbl{font-weight:600;font-size:16px}
+.opt{color:var(--muted);font-weight:400;font-size:14px}
+.help{color:var(--muted);font-size:14px;margin-top:-6px}
+input[type=text],input[type=email],textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:92px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--pick);box-shadow:0 0 0 4px var(--tint)}
+::placeholder{color:var(--muted);opacity:.7}
+
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.o{position:relative}
+.o input{position:absolute;opacity:0;pointer-events:none}
+.o span{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border:1.5px solid var(--line);border-radius:10px;background:var(--paper);cursor:pointer;font-size:15px;font-weight:500;user-select:none;transition:transform .12s,border-color .12s,background .12s,color .12s}
+.o span:hover{border-color:var(--pick);background:var(--tint)}
+.o span:active{transform:scale(.97)}
+.o input:checked + span{background:var(--pick);border-color:var(--pick);color:var(--on-pick)}
+.o.multi input:checked + span::before{content:"✓";font-size:13px;line-height:1}
+.o input:focus-visible + span{outline:2px solid var(--sun);outline-offset:2px}
+
+.rows{display:grid;gap:8px}
+.r{position:relative}
+.r input{position:absolute;opacity:0;pointer-events:none}
+.r span{display:grid;grid-template-columns:20px minmax(0,1fr);column-gap:14px;align-items:center;padding:13px 16px;border:1.5px solid var(--line);border-radius:12px;cursor:pointer;transition:border-color .12s,background .12s}
+.r span::before{content:"";width:16px;height:16px;border:2px solid var(--muted);border-radius:50%;grid-row:1/3;transition:all .12s}
+.r b{font-weight:600}
+.r small{color:var(--muted);font-size:14px}
+.r span:hover{border-color:var(--pick)}
+.r input:checked + span{border-color:var(--pick);background:var(--tint)}
+.r input:checked + span::before{border-color:var(--pick);background:var(--pick);box-shadow:inset 0 0 0 3px var(--tint)}
+.r input:focus-visible + span{outline:2px solid var(--sun);outline-offset:2px}
+
+/* Barra inferior */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--brand);color:var(--on-brand);padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -8px 24px rgba(0,0,0,.12)}
+.dock .in{display:flex;align-items:center;gap:16px;padding-block:12px}
+.meter{flex:1;min-width:0;display:grid;gap:6px}
+.meter small{font-size:13px;opacity:.85;font-variant-numeric:tabular-nums}
+.track{height:6px;border-radius:99px;background:color-mix(in srgb,var(--on-brand) 18%,transparent);overflow:hidden}
+.track i{display:block;height:100%;width:0;background:var(--sun);border-radius:99px;transition:width .35s ease}
+button{font:inherit;cursor:pointer}
+.go{background:var(--sun);color:#1A1A12;border:0;border-radius:10px;padding:12px 20px;font-weight:600;white-space:nowrap;transition:transform .12s}
+.go:hover{transform:translateY(-1px)}
+.go:focus-visible,.btn:focus-visible,.ghost:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* Envío */
+#send{padding-block:44px 0;display:grid;gap:16px;scroll-margin-top:20px}
+#send[hidden]{display:none}
+.panel{background:var(--paper);border:2px solid var(--pick);border-radius:18px;padding:26px 24px;display:grid;gap:16px}
+.panel h2{font-size:28px}
+.panel p{margin:0;color:var(--muted)}
+.btns{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--pick);color:var(--on-pick);border:0;border-radius:12px;padding:14px 20px;font-weight:600;text-decoration:none;font-size:16px}
+.btn svg{width:20px;height:20px;flex:none}
+.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);border-radius:12px;padding:12px 18px;font-weight:500}
+.ghost:hover{border-color:var(--pick)}
+details{border-top:1px solid var(--line);padding-top:12px}
+summary{cursor:pointer;color:var(--muted);font-size:14px}
+#summary{margin-top:10px;min-height:240px;font-size:14px;line-height:1.55}
+.toast{font-size:14px;color:var(--pick);font-weight:600}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--muted);font-size:13px;padding-top:26px}
+.link{background:none;border:0;color:var(--muted);padding:0;font-size:13px;text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="in">
+    <div class="tag"><i>A</i>Andrés Ramírez · para Carolina</div>
+    <h1>Diseñemos <span>tu web</span> juntos.</h1>
+    <p class="lead">Antes de darte un precio quiero entender bien lo que necesitas. Casi todo es de marcar, y si algo no lo tienes claro, sáltalo: lo vemos en persona.</p>
+    <div class="facts"><span>8 bloques</span><span>Unos 7 minutos</span><span>Tus respuestas se guardan solas</span></div>
+  </div>
+</header>
+
+<main class="in">
+  <form id="f" novalidate></form>
+
+  <div id="send" hidden>
+    <div class="panel">
+      <h2>¡Listo, Carolina!</h2>
+      <p>Pulsa el botón verde: se abre WhatsApp con tus respuestas ya escritas. Solo tienes que elegir mi chat y enviar.</p>
+      <div class="btns">
+        <a class="btn" id="wa" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg>
+          Enviar por WhatsApp
+        </a>
+        <button class="ghost" id="copy" type="button">Copiar texto</button>
+        <span class="toast" id="toast" role="status"></span>
+      </div>
+      <details><summary>Ver mis respuestas</summary><textarea id="summary" readonly></textarea></details>
+    </div>
+  </div>
+
+  <div class="foot"><span>Andrés Ramírez · Madrid</span><button class="link" id="reset" type="button">Empezar de cero</button></div>
+</main>
+
+<div class="dock">
+  <div class="in">
+    <div class="meter"><small id="pct">0 de 0 respondidas</small><div class="track"><i id="barfill"></i></div></div>
+    <button class="go" id="gen" type="button">Terminar</button>
+  </div>
+</div>
+
+<script>
+const S = [
+ {t:"Tú y tu proyecto", i:"De qué va y para quién es.", f:[
+  {id:"nombre",l:"Tu nombre",type:"text",ph:"Carolina Pabón"},
+  {id:"marca",l:"Nombre del negocio o proyecto",type:"text",ph:"Si ya tiene nombre",opt:1},
+  {id:"tipo",l:"¿Qué tipo de web es?",type:"single",o:["Negocio local","Servicios profesionales","Tienda online","Portfolio personal","Evento o celebración","Otro"]},
+  {id:"desc",l:"Cuéntamelo en dos o tres frases",type:"area",ph:"Qué haces, qué ofreces y qué te diferencia."},
+  {id:"publico",l:"¿A quién va dirigida?",type:"text",ph:"Vecinos del barrio, empresas, clientes de toda España…"}
+ ]},
+ {t:"El objetivo", i:"Lo que la web tiene que conseguir. Decide casi todo lo demás.", f:[
+  {id:"objetivo",l:"Si solo pudiera hacer una cosa, ¿cuál sería?",type:"rows",o:[
+    ["Que me contacten","Llamadas, WhatsApp o formulario"],["Vender online","Productos con pago en la web"],["Recibir reservas o citas","Agenda online"],["Mostrar mi trabajo","Galería, portfolio, credibilidad"],["Informar","Horarios, ubicación, servicios"]]},
+  {id:"existe",l:"¿Tienes ya web o redes sociales?",type:"single",o:["Tengo web","Solo redes sociales","Nada todavía"]},
+  {id:"enlaces",l:"Enlaces",type:"text",ph:"instagram.com/…",opt:1}
+ ]},
+ {t:"Contenido", i:"Los apartados que te imaginas.", f:[
+  {id:"secciones",l:"¿Qué secciones quieres?",type:"multi",help:"Marca todas las que apliquen.",o:["Inicio","Sobre mí","Servicios","Precios","Galería","Opiniones de clientes","Blog","Preguntas frecuentes","Contacto","Tienda"]},
+  {id:"productos",l:"¿Cuántos productos tendría la tienda?",type:"single",o:["Menos de 20","20 a 100","Más de 100","No lo sé"],show:a=>(a.secciones||[]).includes("Tienda")||a.objetivo==="Vender online"},
+  {id:"idiomas",l:"Idiomas",type:"multi",o:["Español","Inglés","Otro"]}
+ ]},
+ {t:"Funciones", i:"Lo que la web tiene que hacer, además de enseñar información.", f:[
+  {id:"funciones",l:"¿Qué necesitas?",type:"multi",o:["Formulario de contacto","Botón de WhatsApp","Reservas online","Pagos online","Zona de clientes con login","Newsletter","Mapa","Enlaces a redes"],opt:1},
+  {id:"editar",l:"¿Quieres poder cambiar textos y fotos tú misma?",type:"single",o:["Sí","No, prefiero que lo hagas tú","No lo sé"]}
+ ]},
+ {t:"Lo que ya tienes", i:"Para saber desde dónde empezamos.", f:[
+  {id:"dominio",l:"Dominio (la dirección, tipo tunegocio.com)",type:"single",o:["Ya lo tengo","Hay que comprarlo","No sé qué es"]},
+  {id:"logo",l:"Logo",type:"single",o:["Tengo","No tengo","Necesitaría uno"]},
+  {id:"textos",l:"Textos",type:"single",o:["Los escribo yo","Necesito ayuda"]},
+  {id:"fotos",l:"Fotos",type:"single",o:["Tengo fotos propias","Fotos de banco de imágenes","Hay que hacerlas"]}
+ ]},
+ {t:"Estilo", i:"Cómo quieres que se sienta.", f:[
+  {id:"estilo",l:"Elige hasta tres",type:"multi",max:3,o:["Sencilla","Elegante","Cálida","Colorida","Moderna","Seria","Divertida","Natural"]},
+  {id:"colores",l:"Colores de tu marca o que te gusten",type:"text",ph:"Verde oliva y beige, por ejemplo",opt:1},
+  {id:"refs",l:"Webs que te gusten, de cualquier sector",type:"area",ph:"Pega los enlaces y, si puedes, qué te gusta de cada una.",opt:1}
+ ]},
+ {t:"Plazos y presupuesto", i:"Para ajustar la propuesta a lo que tiene sentido para ti.", f:[
+  {id:"plazo",l:"¿Para cuándo la necesitas?",type:"single",o:["En 2 semanas","En un mes","En 2 o 3 meses","Sin prisa"]},
+  {id:"fecha",l:"¿Hay alguna fecha clave?",type:"text",ph:"Una apertura, un evento…",opt:1},
+  {id:"presupuesto",l:"Presupuesto aproximado",type:"single",help:"Orientativo. Me ayuda a proponerte lo mejor dentro de tu rango.",o:["Menos de 300 €","300 a 600 €","600 a 1.000 €","1.000 a 2.000 €","Más de 2.000 €","Prefiero ver una propuesta"]},
+  {id:"mant",l:"Cuando esté publicada, ¿quién se encarga de ella?",type:"single",help:"Hosting, dominio, copias de seguridad y cambios pequeños.",o:["Tú, con una cuota mensual","Yo misma","No lo sé"]}
+ ]},
+ {t:"Para terminar", i:"Último paso.", f:[
+  {id:"contacto",l:"¿Cómo prefieres que hablemos?",type:"single",o:["WhatsApp","Llamada","Email","Un café"]},
+  {id:"email",l:"Email",type:"email",ph:"tu@email.com",opt:1},
+  {id:"extra",l:"¿Algo más que deba saber?",type:"area",ph:"Ideas, dudas, cosas que no quieres…",opt:1}
+ ]}
+];
+
+const KEY="briefing-web-v1"; const form=document.getElementById("f"); let A={};
+try{A=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){A={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(A))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function render(){
+  form.innerHTML=S.map((s,si)=>`<section class="block" data-s="${si}"><div class="side"><div class="step">Paso ${si+1} de ${S.length}<span class="ok">✓</span></div><h2>${s.t}</h2><p>${s.i}</p></div><div class="qs">${s.f.map(field).join("")}</div></section>`).join("");
+  form.querySelectorAll("input[type=text],input[type=email],textarea").forEach(el=>{el.value=A[el.id]||"";el.addEventListener("input",()=>{A[el.id]=el.value;save();progress()})});
+  form.querySelectorAll("input[type=radio],input[type=checkbox]").forEach(el=>el.addEventListener("change",onPick));
+  visibility();progress();
+}
+function field(f){
+  const req=f.opt?` <span class="opt">(opcional)</span>`:"";
+  const txt=["text","email","area"].includes(f.type);
+  let inner="";
+  if(f.type==="text"||f.type==="email") inner=`<input type="${f.type}" id="${f.id}" placeholder="${esc(f.ph||"")}" autocomplete="off">`;
+  else if(f.type==="area") inner=`<textarea id="${f.id}" placeholder="${esc(f.ph||"")}"></textarea>`;
+  else if(f.type==="rows") inner=`<div class="rows" role="radiogroup">${f.o.map(([v,d],k)=>`<label class="r"><input type="radio" name="${f.id}" id="${f.id}_${k}" value="${esc(v)}" ${A[f.id]===v?"checked":""}><span><b>${v}</b><small>${d}</small></span></label>`).join("")}</div>`;
+  else { const m=f.type==="multi"; const cur=A[f.id]||(m?[]:"");
+    inner=`<div class="opts">${f.o.map((v,k)=>`<label class="o ${m?"multi":""}"><input type="${m?"checkbox":"radio"}" name="${f.id}" id="${f.id}_${k}" value="${esc(v)}" ${m?(cur.includes(v)?"checked":""):(cur===v?"checked":"")}><span>${v}</span></label>`).join("")}</div>`; }
+  return `<div class="field" data-f="${f.id}"><label class="lbl" ${txt?`for="${f.id}"`:""}>${f.l}${req}</label>${f.help?`<div class="help">${f.help}</div>`:""}${inner}</div>`;
+}
+function onPick(e){
+  const el=e.target, f=all().find(x=>x.id===el.name);
+  if(el.type==="radio") A[el.name]=el.value;
+  else { let cur=A[el.name]||[]; if(el.checked){ if(f.max&&cur.length>=f.max){el.checked=false;return} cur=[...cur,el.value]} else cur=cur.filter(v=>v!==el.value); A[el.name]=cur; }
+  save();visibility();progress();
+}
+const all=()=>S.flatMap(s=>s.f);
+const shown=f=>!f.show||f.show(A);
+const filled=f=>{const v=A[f.id];return Array.isArray(v)?v.length>0:!!(v&&String(v).trim())};
+function visibility(){all().forEach(f=>{const el=form.querySelector(`[data-f="${f.id}"]`);if(el)el.hidden=!shown(f)})}
+function progress(){
+  const req=all().filter(f=>!f.opt&&shown(f)), done=req.filter(filled).length;
+  document.getElementById("barfill").style.width=(req.length?done/req.length*100:0)+"%";
+  document.getElementById("pct").textContent=done===req.length?"Todo respondido":`${done} de ${req.length} respondidas`;
+  S.forEach((s,si)=>{const r=s.f.filter(f=>!f.opt&&shown(f));form.querySelector(`[data-s="${si}"]`).classList.toggle("done",r.length>0&&r.every(filled))});
+  if(!document.getElementById("send").hidden) fillSend();
+}
+function summary(){
+  let out=`*Briefing web*${A.nombre?" · "+A.nombre.trim():""}\n`;
+  S.forEach(s=>{
+    const lines=s.f.filter(f=>shown(f)&&filled(f)).map(f=>{const v=A[f.id];return `• ${f.l.replace(/\s*\(.*\)$/,"")}: ${Array.isArray(v)?v.join(", "):String(v).trim()}`});
+    if(lines.length) out+=`\n*${s.t}*\n${lines.join("\n")}\n`;
+  });
+  return out.trim();
+}
+function fillSend(){const t=summary();document.getElementById("summary").value=t;document.getElementById("wa").href="https://wa.me/?text="+encodeURIComponent(t)}
+document.getElementById("gen").onclick=()=>{
+  const req=all().filter(f=>!f.opt&&shown(f)), first=req.find(f=>!filled(f));
+  const send=document.getElementById("send"); fillSend(); send.hidden=false;
+  const behavior=matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth";
+  if(first&&!document.getElementById("gen").dataset.skip){
+    document.getElementById("gen").dataset.skip="1";document.getElementById("gen").textContent="Enviar igualmente";
+    form.querySelector(`[data-f="${first.id}"]`).scrollIntoView({behavior,block:"center"});
+    document.getElementById("pct").textContent=`Te falta alguna pregunta. Puedes enviar igualmente.`;
+  } else send.scrollIntoView({behavior,block:"start"});
+};
+document.getElementById("copy").onclick=async()=>{const ta=document.getElementById("summary"),t=document.getElementById("toast");
+  try{await navigator.clipboard.writeText(ta.value);t.textContent="Copiado"}catch(e){ta.closest("details").open=true;ta.focus();ta.select();t.textContent="Texto seleccionado, cópialo"}};
+let armed=false;
+document.getElementById("reset").onclick=e=>{const b=e.currentTarget;if(!armed){armed=true;b.textContent="Pulsa otra vez para borrar todo";setTimeout(()=>{armed=false;b.textContent="Empezar de cero"},3000);return}
+  A={};save();armed=false;b.textContent="Empezar de cero";document.getElementById("send").hidden=true;const g=document.getElementById("gen");delete g.dataset.skip;g.textContent="Terminar";render();scrollTo({top:0})};
+render();
+</script>
+
+</body>
+</html>
