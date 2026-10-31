@@ -129,7 +129,7 @@ summary{cursor:pointer;color:var(--muted);font-size:14px}
 
 <header class="hero">
   <div class="in">
-    <div class="tag"><i>A</i>Andrés Ramírez · para Carolina</div>
+    <div class="tag"><i>A</i><span id="tagline">Andrés Ramírez · Desarrollo web</span></div>
     <h1>Diseñemos <span>tu web</span> juntos.</h1>
     <p class="lead">Antes de darte un precio quiero entender bien lo que necesitas. Casi todo es de marcar, y si algo no lo tienes claro, sáltalo: lo vemos en persona.</p>
     <div class="facts"><span>8 bloques</span><span>Unos 7 minutos</span><span>Tus respuestas se guardan solas</span></div>
@@ -141,7 +141,7 @@ summary{cursor:pointer;color:var(--muted);font-size:14px}
 
   <div id="send" hidden>
     <div class="panel">
-      <h2>¡Listo, Carolina!</h2>
+      <h2 id="donetitle">¡Listo!</h2>
       <p>Pulsa el botón verde: se abre WhatsApp con tus respuestas ya escritas. Solo tienes que elegir mi chat y enviar.</p>
       <div class="btns">
         <a class="btn" id="wa" href="#" target="_blank" rel="noopener">
@@ -168,7 +168,7 @@ summary{cursor:pointer;color:var(--muted);font-size:14px}
 <script>
 const S = [
  {t:"Tú y tu proyecto", i:"De qué va y para quién es.", f:[
-  {id:"nombre",l:"Tu nombre",type:"text",ph:"Carolina Pabón"},
+  {id:"nombre",l:"Tu nombre",type:"text",ph:"Nombre y apellidos"},
   {id:"marca",l:"Nombre del negocio o proyecto",type:"text",ph:"Si ya tiene nombre",opt:1},
   {id:"tipo",l:"¿Qué tipo de web es?",type:"single",o:["Negocio local","Servicios profesionales","Tienda online","Portfolio personal","Evento o celebración","Otro"]},
   {id:"desc",l:"Cuéntamelo en dos o tres frases",type:"area",ph:"Qué haces, qué ofreces y qué te diferencia."},
@@ -187,7 +187,7 @@ const S = [
  ]},
  {t:"Funciones", i:"Lo que la web tiene que hacer, además de enseñar información.", f:[
   {id:"funciones",l:"¿Qué necesitas?",type:"multi",o:["Formulario de contacto","Botón de WhatsApp","Reservas online","Pagos online","Zona de clientes con login","Newsletter","Mapa","Enlaces a redes"],opt:1},
-  {id:"editar",l:"¿Quieres poder cambiar textos y fotos tú misma?",type:"single",o:["Sí","No, prefiero que lo hagas tú","No lo sé"]}
+  {id:"editar",l:"¿Quieres poder cambiar textos y fotos por tu cuenta?",type:"single",o:["Sí","No, prefiero que lo hagas tú","No lo sé"]}
  ]},
  {t:"Lo que ya tienes", i:"Para saber desde dónde empezamos.", f:[
   {id:"dominio",l:"Dominio (la dirección, tipo tunegocio.com)",type:"single",o:["Ya lo tengo","Hay que comprarlo","No sé qué es"]},
@@ -204,7 +204,7 @@ const S = [
   {id:"plazo",l:"¿Para cuándo la necesitas?",type:"single",o:["En 2 semanas","En un mes","En 2 o 3 meses","Sin prisa"]},
   {id:"fecha",l:"¿Hay alguna fecha clave?",type:"text",ph:"Una apertura, un evento…",opt:1},
   {id:"presupuesto",l:"Presupuesto aproximado",type:"single",help:"Orientativo. Me ayuda a proponerte lo mejor dentro de tu rango.",o:["Menos de 300 €","300 a 600 €","600 a 1.000 €","1.000 a 2.000 €","Más de 2.000 €","Prefiero ver una propuesta"]},
-  {id:"mant",l:"Cuando esté publicada, ¿quién se encarga de ella?",type:"single",help:"Hosting, dominio, copias de seguridad y cambios pequeños.",o:["Tú, con una cuota mensual","Yo misma","No lo sé"]}
+  {id:"mant",l:"Cuando esté publicada, ¿quién se encarga de ella?",type:"single",help:"Hosting, dominio, copias de seguridad y cambios pequeños.",o:["Tú, con una cuota mensual","Me encargo yo","No lo sé"]}
  ]},
  {t:"Para terminar", i:"Último paso.", f:[
   {id:"contacto",l:"¿Cómo prefieres que hablemos?",type:"single",o:["WhatsApp","Llamada","Email","Un café"]},
@@ -260,7 +260,7 @@ function summary(){
   });
   return out.trim();
 }
-function fillSend(){const t=summary();document.getElementById("summary").value=t;document.getElementById("wa").href="https://wa.me/?text="+encodeURIComponent(t)}
+function fillSend(){doneTitle();const t=summary();document.getElementById("summary").value=t;document.getElementById("wa").href="https://wa.me/?text="+encodeURIComponent(t)}
 document.getElementById("gen").onclick=()=>{
   const req=all().filter(f=>!f.opt&&shown(f)), first=req.find(f=>!filled(f));
   const send=document.getElementById("send"); fillSend(); send.hidden=false;
@@ -276,6 +276,10 @@ document.getElementById("copy").onclick=async()=>{const ta=document.getElementBy
 let armed=false;
 document.getElementById("reset").onclick=e=>{const b=e.currentTarget;if(!armed){armed=true;b.textContent="Pulsa otra vez para borrar todo";setTimeout(()=>{armed=false;b.textContent="Empezar de cero"},3000);return}
   A={};save();armed=false;b.textContent="Empezar de cero";document.getElementById("send").hidden=true;const g=document.getElementById("gen");delete g.dataset.skip;g.textContent="Terminar";render();scrollTo({top:0})};
+// Personalización opcional: ?para=Nombre en la URL
+let para="";try{para=(new URLSearchParams(location.search).get("para")||"").trim().slice(0,40)}catch(e){}
+if(para){document.getElementById("tagline").textContent="Andrés Ramírez · para "+para;}
+function doneTitle(){const n=(A.nombre||"").trim().split(/\s+/)[0]||para;document.getElementById("donetitle").textContent=n?`¡Listo, ${n}!`:"¡Listo!"}
 render();
 </script>
 
